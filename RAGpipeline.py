@@ -25,7 +25,6 @@ import chromadb
 
 # File paths for memory persistence
 OLLAMA_BASE_URL = "http://localhost:11434"
-OLLAMA_MODEL_NAME = "deepseek-r1:7b"
 OLLAMA_EMBEDDING_MODEL_NAME = "nomic-embed-text"
 MEMORY_FILE = "/app/backend/data/conversation_memory.json"
 ARCHITECTURE_FILE = "/app/backend/data/project_architecture.json"
@@ -35,7 +34,6 @@ HISTORY_LIMIT = 30000
 class Pipeline:
     class Valves(BaseModel):
         OLLAMA_BASE_URL: str
-        OLLAMA_MODEL_NAME: str
         OLLAMA_EMBEDDING_MODEL_NAME: str
         DEEPSEEK_CHAT_MODEL: str
         DEEPSEEK_CODER_MODEL: str
@@ -46,10 +44,10 @@ class Pipeline:
 
         self.valves = self.Valves(
             **{
-                "OLLAMA_BASE_URL": os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
+                "OLLAMA_BASE_URL": os.getenv("OLLAMA_BASE_URL", OLLAMA_BASE_URL),
                 "DEEPSEEK_CHAT_MODEL": os.getenv("DEEPSEEK_CHAT_MODEL", "deepseek-r1:7b"),
                 "DEEPSEEK_CODER_MODEL": os.getenv("DEEPSEEK_CODER_MODEL", "deepseek-coder-v2:16b"),
-                "OLLAMA_EMBEDDING_MODEL_NAME": os.getenv("OLLAMA_EMBEDDING_MODEL_NAME", "nomic-embed-text"),
+                "OLLAMA_EMBEDDING_MODEL_NAME": os.getenv("OLLAMA_EMBEDDING_MODEL_NAME", OLLAMA_EMBEDDING_MODEL_NAME),
             }
         )
 
