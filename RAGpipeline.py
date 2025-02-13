@@ -154,3 +154,6 @@ class Pipeline:
         rag_response = query_engine.query(user_message)
 
         return f"{response}\n\nAdditional Information:\n{rag_response.response}"
+    
+    async def run(self, user_message: str) -> str:
+        return self.pipe(user_message, "", [], {})
