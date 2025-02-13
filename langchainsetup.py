@@ -1,3 +1,13 @@
+"""
+title: Basic Langchain implementation
+author: Khwaish Arora
+date: 2024-05-30
+version: 1.0
+license: MIT
+description: A pipeline for retaining conversation memory using LangChain and Ollama
+requirements: ollama, langchain
+"""
+
 from langchain.memory import ConversationBufferMemory
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationChain

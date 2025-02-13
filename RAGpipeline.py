@@ -1,6 +1,6 @@
 """
 title: Llama Index Ollama Memory Pipeline
-author: open-webui
+author: Khwaish Arora
 date: 2024-05-30
 version: 1.0
 license: MIT
